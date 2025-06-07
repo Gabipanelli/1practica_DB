@@ -35,7 +35,12 @@ class Dataset(ABC):
         return True
 
     def transformar_datos(self):
-        pass
+        if self.datos is not None :
+            self.__datos.columns = self.datos.columns.str.upper().str.replace(" ", "_")
+            self.__datos = self.datos.drop_duplicates()
+            print("Transformación de datos completada")
+        else:
+            print("Error al trasnformar datos, asegurarse de tener datos cargados.")
 
     def mostrar_resumen(self):
-        pass
+        return print(self.datos.describe(include="all") if self.datos is not None else "No hay datos")

@@ -12,7 +12,6 @@ class DatasetExcel(Dataset):
             self.datos = df
             print("Excel cargado ok")
             if self.validar_datos():
-                print("Datos validados en el excel")
-                # self.transformar_datos()
+                self.transformar_datos()
         except Exception as e:
             print(f"Error cargando Excel: {e}")
