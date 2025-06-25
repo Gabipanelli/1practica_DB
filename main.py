@@ -5,7 +5,7 @@ from data.data_saver import DataSaver
 
 # Ruta de archivos
 csv_path = path.join(path.dirname(__file__), "files/ipc-chaco-historico.csv")
-excel_path =path.join(path.dirname(__file__), "files/Datos_de _servicio.xlsx")
+excel_path = path.join(path.dirname(__file__), "files/Datos_de_servicio.xlsx")
 
 # Cargar y transformar
 csv = DatasetCSV(csv_path)
@@ -14,7 +14,9 @@ csv.mostrar_resumen()
 
 excel= DatasetExcel(excel_path)
 excel.cargar_datos()
+excel.limpiar_datos()
 excel.mostrar_resumen()
+
 
 # guardar en base de datos
 db = DataSaver()

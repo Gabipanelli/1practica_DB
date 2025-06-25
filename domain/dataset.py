@@ -43,4 +43,6 @@ class Dataset(ABC):
             print("Error al trasnformar datos, asegurarse de tener datos cargados.")
 
     def mostrar_resumen(self):
-        return print(self.datos.describe(include="all") if self.datos is not None else "No hay datos")
+        #print(self.datos.head())
+        print(self.datos.tail())
+        #print(self.datos.describe())
