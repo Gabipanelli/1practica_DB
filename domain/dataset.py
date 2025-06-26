@@ -43,6 +43,7 @@ class Dataset(ABC):
             print("Error al trasnformar datos, asegurarse de tener datos cargados.")
 
     def mostrar_resumen(self):
-        #print(self.datos.head())
-        print(self.datos.tail())
+        print(self.datos.head())
+        #print(self.datos.tail())
         #print(self.datos.describe())
+        print(self.datos.info())

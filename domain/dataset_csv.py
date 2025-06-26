@@ -8,7 +8,7 @@ class DatasetCSV(Dataset):
 
     def cargar_datos(self):
         try:
-            df = pd.read_csv(self.fuente)
+            df = pd.read_csv(self.fuente, sep=',', encoding='latin-1')
             self.datos = df
             print("El CSV se cargo correctamente")
             if self.validar_datos():
@@ -16,3 +16,9 @@ class DatasetCSV(Dataset):
                 self.transformar_datos()
         except Exception as e:
             print(f"Error al cargar CSV: {e}")
+
+    def proceso_datos(self):
+        df = pd.read_csv(self.fuente, sep=',', encoding='latin-1')
+        self.datos = df
+        df = df.drop(df.columns[[0, 2, 4, 21, 22, 23]], axis=1, inplace=True)
+        print(self.datos.info())
